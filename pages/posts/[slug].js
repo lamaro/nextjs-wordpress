@@ -51,7 +51,7 @@ export default function Post({ post, posts, preview }) {
                 {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
               </footer>
             </article>
-
+            <p>Edad: {post.customFields.thumb.uri}</p>
             <SectionSeparator />
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           </>
@@ -70,7 +70,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       post: data.post,
       posts: data.posts,
     },
-    revalidate: 10,
+    revalidate: 1,
   }
 }
 
